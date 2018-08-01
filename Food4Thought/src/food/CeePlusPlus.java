@@ -13,10 +13,15 @@ import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class CeePlusPlus extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -39,9 +44,9 @@ public class CeePlusPlus extends JFrame {
 	 */
 	public CeePlusPlus() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 566, 434);
+		setBounds(100, 100, 817, 424);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -115,6 +120,46 @@ public class CeePlusPlus extends JFrame {
 		JLabel label_9 = new JLabel("0");
 		label_9.setBounds(345, 315, 46, 14);
 		contentPane.add(label_9);
+		
+		
+		JLabel lblCustomerInformation = new JLabel("Customer Information");
+		lblCustomerInformation.setBounds(562, 27, 179, 14);
+		contentPane.add(lblCustomerInformation);
+		
+		JLabel lblLastName = new JLabel("Last Name:");
+		lblLastName.setBounds(403, 61, 67, 14);
+		contentPane.add(lblLastName);
+		
+		JLabel lblFirstName = new JLabel("First Name:");
+		lblFirstName.setBounds(403, 97, 67, 14);
+		contentPane.add(lblFirstName);
+		
+		JLabel lblAddress = new JLabel("Address:");
+		lblAddress.setBounds(403, 188, 105, 14);
+		contentPane.add(lblAddress);		
+		
+		JLabel lblNewLabel_2 = new JLabel("Phone:");
+		lblNewLabel_2.setBounds(403, 139, 46, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(512, 58, 191, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(512, 94, 191, 20);
+		contentPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(512, 136, 191, 20);
+		contentPane.add(textField_2);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(403, 213, 294, 58);
+		contentPane.add(textArea);
 		
 		JButton btnFood = new JButton("Fried Chicken ($10)");
 		btnFood.addActionListener(new ActionListener() {
@@ -238,7 +283,7 @@ public class CeePlusPlus extends JFrame {
 		contentPane.add(btnFood_4);
 		
 		JLabel lblPrice = new JLabel("Price ($):");
-		lblPrice.setBounds(276, 27, 46, 14);
+		lblPrice.setBounds(276, 27, 59, 14);
 		contentPane.add(lblPrice);
 		
 		
@@ -259,6 +304,11 @@ public class CeePlusPlus extends JFrame {
 				label_8.setText("0");
 				
 				label_9.setText("0");
+				
+				textField.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textArea.setText("");
 			}
 		});
 		btnClear.setBounds(10, 340, 89, 23);
@@ -269,6 +319,6 @@ public class CeePlusPlus extends JFrame {
 		contentPane.add(lblTotal);
 		
 		
+		
 	}	
-
 }
