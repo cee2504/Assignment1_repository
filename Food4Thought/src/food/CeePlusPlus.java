@@ -82,6 +82,9 @@ public class CeePlusPlus extends JFrame {
 		JButton btnNewButton_1 = new JButton("Back");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SelectRestaurant m = new SelectRestaurant();
+				m.setVisible(true);				
 			}
 		});
 		btnNewButton_1.setBounds(451, 340, 89, 23);

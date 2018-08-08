@@ -52,11 +52,25 @@ public class SelectRestaurant extends JFrame {
 		btnNewButton.setBounds(10, 33, 124, 42);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Restaurant 2");
+		JButton btnNewButton_1 = new JButton("JuicyJ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				juicyJ j = new juicyJ();
+				j.setVisible(true);
+			}
+		});
 		btnNewButton_1.setBounds(10, 94, 124, 42);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Restaurant 3");
+		JButton btnNewButton_2 = new JButton("Zesty Zorn");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ZestyZorn z = new ZestyZorn();
+				z.setVisible(true);
+			}
+		});
 		btnNewButton_2.setBounds(10, 153, 124, 42);
 		contentPane.add(btnNewButton_2);
 		

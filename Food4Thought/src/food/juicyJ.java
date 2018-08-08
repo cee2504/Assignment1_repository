@@ -48,7 +48,7 @@ public class juicyJ extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void juicyJ() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -223,6 +223,13 @@ public class juicyJ extends JFrame {
 		
 		
 		JButton btnClear = new JButton("Back");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SelectRestaurant m = new SelectRestaurant();
+				m.setVisible(true);					
+			}
+		});
 		btnClear.setForeground(UIManager.getColor("InternalFrame.activeTitleGradient"));
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnClear.setBounds(46, 482, 81, 29);
@@ -239,9 +246,9 @@ public class juicyJ extends JFrame {
 		panel.add(total);
 		total.setColumns(10);
 		
-		JButton button_1 = new JButton("Click for Price");
-		button_1.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
-		button_1.addActionListener(new ActionListener() {
+		JButton btnClickForPrice = new JButton("Click for Price ($)");
+		btnClickForPrice.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
+		btnClickForPrice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int orange = Integer.parseInt(label.getText()) * 6;
 				int green = Integer.parseInt(label_1.getText()) * 7;
@@ -249,14 +256,14 @@ public class juicyJ extends JFrame {
 				int apple = Integer.parseInt(label_3.getText()) * 5;
 				
 				String totalPrice = Integer.toString(orange + green + carrot + apple);
-				total.setText(" $" + totalPrice);
+				total.setText(totalPrice);
 				
 			}
 		});
-		button_1.setForeground(UIManager.getColor("InternalFrame.activeTitleGradient"));
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button_1.setBounds(46, 405, 149, 33);
-		panel.add(button_1);
+		btnClickForPrice.setForeground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+		btnClickForPrice.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnClickForPrice.setBounds(46, 405, 149, 33);
+		panel.add(btnClickForPrice);
 		
 		JButton button = new JButton("Place Order");
 		button.addActionListener(new ActionListener() {
@@ -293,7 +300,7 @@ public class juicyJ extends JFrame {
 							preparedStmt.setInt(3, greenNum);
 							preparedStmt.setInt(4, carrotNum);
 							preparedStmt.setInt(5, appleNum);
-							preparedStmt.setInt(6, totalPrice);
+							preparedStmt.setString(6, Integer.toString(totalPrice));
 							preparedStmt.setString(7, jFirstName);
 							preparedStmt.setString(8, jLastName);
 							preparedStmt.setString(9, jPhone);
@@ -303,7 +310,7 @@ public class juicyJ extends JFrame {
 							preparedStmt.close();
 							myCon.close();
 							
-							JOptionPane.showMessageDialog(jframe, "Order Placed!\n" + "Total Price: "+  total + "$\n" + "Time estimated: " + time);
+							JOptionPane.showMessageDialog(jframe, "Order Placed!\n" + "Total Price: "+  total.getText() + "$\n" + "Time estimated: " + time);
 										
 
 						} catch (Exception e1) {

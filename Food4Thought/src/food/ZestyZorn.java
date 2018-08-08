@@ -43,7 +43,7 @@ public class ZestyZorn extends JFrame {
 	static final String password = "";
 
 
-	public static void main(String[] args) {
+	public void ZestyZorn() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -76,6 +76,9 @@ public class ZestyZorn extends JFrame {
 		JButton btnNewButton_1 = new JButton("Back");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SelectRestaurant m = new SelectRestaurant();
+				m.setVisible(true);		
 			}
 		});
 		btnNewButton_1.setBounds(451, 340, 89, 23);
@@ -342,11 +345,11 @@ public class ZestyZorn extends JFrame {
 						myCon = DriverManager.getConnection(dbUrl, uname, password);
 						System.out.println("DB connection successful...");
 						
-						int chickenNum = Integer.parseInt(label.getText());
-						int chipsNum = Integer.parseInt(label_1.getText());
-						int fishNum = Integer.parseInt(label_2.getText());
-						int muffinNum = Integer.parseInt(label_3.getText());
-						int steakNum = Integer.parseInt(label_4.getText());
+						int gooseNum = Integer.parseInt(label.getText());
+						int roughyNum = Integer.parseInt(label_1.getText());
+						int gazelleNum = Integer.parseInt(label_2.getText());
+						int guineaNum = Integer.parseInt(label_3.getText());
+						int pieNum = Integer.parseInt(label_4.getText());
 						int priceTotal = Integer.parseInt(label_9.getText());
 						
 						String cLastName = textField.getText();
@@ -359,15 +362,15 @@ public class ZestyZorn extends JFrame {
 						int minutes = rand.nextInt(60);
 						String time = Integer.toString(minutes) + "m";
 						
-						String sql = "insert into ceeplusplus" + " (orderID, chicken, chips, fish, muffin, steak, totalPrice, lastName, firstName, phone, address) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						String sql = "insert into zesty" + " (orderID, goose, roughy, gazelleHip, guineaPig, pie, totalPrice, lastName, firstName, phone, address) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 						preparedStmt = myCon.prepareStatement(sql);
 						preparedStmt.setInt(1, id);
-						preparedStmt.setInt(2, chickenNum);
-						preparedStmt.setInt(3, chipsNum);
-						preparedStmt.setInt(4, fishNum);
-						preparedStmt.setInt(5, muffinNum);
-						preparedStmt.setInt(6, steakNum);
+						preparedStmt.setInt(2, gooseNum);
+						preparedStmt.setInt(3, roughyNum);
+						preparedStmt.setInt(4, gazelleNum);
+						preparedStmt.setInt(5, guineaNum);
+						preparedStmt.setInt(6, pieNum);
 						preparedStmt.setInt(7, priceTotal);
 						preparedStmt.setString(8, cLastName);
 						preparedStmt.setString(9, cFirstName);
