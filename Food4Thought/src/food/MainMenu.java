@@ -37,6 +37,7 @@ public class MainMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//This is the main menu
 	public MainMenu() {
 		setTitle("Main Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
